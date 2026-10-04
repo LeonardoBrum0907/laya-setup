@@ -71,6 +71,16 @@ describe('Perceiver', () => {
     assert.deepEqual(Object.keys(lastBody.state).sort(), ['channel', 'device', 'transcript']);
   });
 
+  it('logs prosody but keeps it out of the Laya state', async () => {
+    mode = 'ok';
+    const logs: DecisionLog[] = [];
+    const prosody = { durationMs: 900, rmsDb: -18, peakDb: -12, pitchHz: 140, pitchRangeSt: 1.2,
+      voicedRatio: 0.8, longestPauseMs: 120, wordsPerSec: 4.1 };
+    await perceiver(logs).perceive({ ...event, prosody });
+    assert.deepEqual(Object.keys(lastBody.state).sort(), ['channel', 'device', 'transcript']);
+    assert.deepEqual(logs[0].event.prosody, prosody);
+  });
+
   it('falls back to rules when confidence is low', async () => {
     mode = 'unsure';
     const logs: DecisionLog[] = [];

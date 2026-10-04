@@ -83,7 +83,17 @@ type Perception = {
 };
 ```
 
-O estado enviado ao Laya é só `{ transcript, device, channel }`, **sem humor**. Mouse errático,
+O estado enviado ao Laya é só `{ transcript, device, channel }`, **sem humor**.
+
+### Entonação (preparação para a v2)
+
+A v1 só lê texto. Para já ir juntando dados de entonação, o bridge pode medir o áudio de cada
+fala com `measureProsody(samples, sampleRate, transcript)` (`client/src/prosody.ts`: volume, tom
+médio, variação de tom em semitons, pausas e palavras por segundo, sem modelo nenhum) e passar o
+resultado em `perceive({ transcript, prosody })`. Esses números vão para `logs/decisions.jsonl`,
+mas **não** entram no estado enviado ao Laya. `describeProsody` transforma os números em rótulos
+(`volume`, `ritmo`, `tom`) relativos ao seu normal, calculado por `fitBaseline` a partir do log:
+é o formato que um schema v2 receberia, se os erros do teste congelado mostrarem que vale a pena. Mouse errático,
 inatividade e contagem de chamados continuam nas regras do motor e não passam por aqui.
 
 ### Ligando ao Ultron

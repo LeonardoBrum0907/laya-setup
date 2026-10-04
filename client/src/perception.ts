@@ -4,6 +4,7 @@
 
 import { LayaClient, LayaError } from './laya-client.ts';
 import type { Answer, Questions } from './laya-client.ts';
+import type { Prosody } from './prosody.ts';
 
 export type ActType =
   | 'praise'
@@ -20,6 +21,8 @@ export type PerceptionEvent = {
   transcript: string;
   device?: 'desktop' | 'phone' | 'tv';
   channel?: 'voice' | 'ui';
+  /** How it was said (see prosody.ts). Logged with the decision; not sent to Laya in v1. */
+  prosody?: Prosody;
 };
 
 export type Perception = {

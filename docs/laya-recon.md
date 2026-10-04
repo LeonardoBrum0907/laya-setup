@@ -117,3 +117,10 @@ Por isso o Laya fica como serviço local separado, chamado pelo bridge. Faltam:
 3. Atos de fala: **os nove de `act_type` cobrem por agora** (resposta de 04/10/2026). Schema
    fechado como `ultron-v1`.
 4. Orçamento de latência da percepção.
+
+## Decisões
+
+- **Entonação (04/10/2026):** a v1 segue só com texto. O cliente já mede volume, tom, pausas e
+  ritmo do áudio (`client/src/prosody.ts`) e grava no log de decisões, sem mandar ao Laya. Com
+  algumas centenas de falas reais gravadas, os erros do teste congelado dizem se vale criar um
+  schema v2 com campos de voz, rotulado a partir dessas gravações.
