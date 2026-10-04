@@ -6,7 +6,7 @@ import { jsonlLogger, loadQuestions } from '../src/node.ts';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const perceiver = new Perceiver({
-  client: new LayaClient({ timeoutMs: 2000, apiKey: process.env.LAYA_API_KEY || undefined }),
+  client: new LayaClient({ timeoutMs: 4000, apiKey: process.env.LAYA_API_KEY || undefined }),
   questions: loadQuestions(`${root}data/schema/ultron_schema.json`),
   onDecision: jsonlLogger(`${root}logs/decisions.jsonl`),
 });

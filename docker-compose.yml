@@ -1,0 +1,13 @@
+services:
+  laya:
+    build: .
+    image: laya-setup:latest
+    ports:
+      - "127.0.0.1:8000:8000"   # never publish on all interfaces
+    volumes:
+      - ./hf-cache:/cache       # checkpoints survive rebuilds; same folder the native setup uses
+      - ./scripts:/app/scripts:ro
+      - ./data:/app/data:ro
+    environment:
+      LAYA_API_KEY: ${LAYA_API_KEY:-}
+    restart: unless-stopped

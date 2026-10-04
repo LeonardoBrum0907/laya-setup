@@ -25,7 +25,9 @@ def main() -> None:
     os.environ.setdefault("LAYA_PRELOAD", "1")
 
     host = os.environ["LAYA_HOST"]
-    if host not in LOCAL_HOSTS and not os.environ.get("LAYA_API_KEY"):
+    # In the Docker image the container must bind 0.0.0.0; docker-compose.yml publishes it on 127.0.0.1.
+    in_container = os.environ.get("LAYA_IN_CONTAINER") == "1"
+    if host not in LOCAL_HOSTS and not in_container and not os.environ.get("LAYA_API_KEY"):
         sys.exit(f"Refusing to bind {host} without LAYA_API_KEY. Use 127.0.0.1 or set a key in .env.")
 
     print(

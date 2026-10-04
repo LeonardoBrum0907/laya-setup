@@ -71,7 +71,31 @@ do schema) e convertemos com `scripts/export_dataset.py`.
 | `laya-serve` sem auth e em 0.0.0.0 [T] | Confirmado no código |
 | Fine-tuning: tempo desconhecido | README: cerca de 4 a 5 h em 2×T4 para 4 épocas sobre ~30 mil perguntas |
 
-## Ainda falta medir (na sua máquina)
+## Medido no PC do Léo (04/10/2026)
+
+Windows 11, AMD RX 570 (sem aceleração), Python 3.12, Node 24. O PyTorch nativo não carrega:
+o Smart App Control (modo de imposição) bloqueia `c10.dll`, que não é assinada
+(`OSError: [WinError 4551]`). Tudo abaixo rodou em Docker (`python:3.12-slim`, CPU).
+
+| Medida | Valor |
+|---|---|
+| Download do `multilingual` (`hf-cache`) | 647 MB |
+| RAM de pico do processo Python | 2.396 MB |
+| Partida a frio, com download | 97 s |
+| Partida a frio, offline | 37 s |
+| Latência quente, `smoke_test.py` (3 perguntas) | mediana 1,2 s online; 1,95 s offline |
+| `perceive.ts` (4 perguntas, via servidor) | respondeu dentro de 2 s, mas no limite |
+
+Consequências: o `timeoutMs` do exemplo subiu para 4.000 ms, e a resposta do Ultron (até 2 s)
+fica apertada nesta CPU. O "ouvi" continua por regras.
+
+Qualidade zero-shot, como o briefing previa: "Ultron, você é lento demais, anda logo com isso."
+saiu `small_talk` 0,37 / `command` 0,36 / `provocation` 0,05, com `directed_at_ultron` = 0,30.
+Pelo servidor, a mesma fala virou `indifference` com confiança 0,64, acima do limiar padrão de 0,6.
+Ou seja, o limiar sozinho não segura erros do modelo base; precisa de fine-tuning e de um limiar
+medido no teste congelado.
+
+## Ainda falta medir
 
 - Tamanho do download e memória residente do `multilingual` na CPU.
 - Latência fria e quente (`scripts/smoke_test.py`).

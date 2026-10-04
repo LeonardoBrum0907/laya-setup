@@ -25,6 +25,22 @@ powershell -ExecutionPolicy Bypass -File scripts\setup.ps1      # CPU; use -Cuda
 
 macOS / Linux: `bash scripts/setup.sh` e depois `.venv/bin/python scripts/...`.
 
+### Windows com Smart App Control: use Docker
+
+Se `import torch` falhar com `WinError 4551` ("Uma política de Controle de Aplicativo bloqueou
+este arquivo"), o Smart App Control está bloqueando as DLLs do PyTorch, que não são assinadas.
+Rode o servidor em Docker (o cliente Node continua no Windows):
+
+```powershell
+docker compose up -d --build        # serviço em http://127.0.0.1:8000, checkpoints em .\hf-cache
+docker compose logs -f laya         # espere "Application startup complete"
+docker compose run --rm laya python scripts/smoke_test.py --offline
+docker compose down
+```
+
+A porta só é publicada em 127.0.0.1. Dentro do contêiner o servidor escuta em 0.0.0.0, e
+`LAYA_IN_CONTAINER=1` libera isso sem exigir `LAYA_API_KEY`.
+
 Com o serviço no ar:
 
 ```powershell
