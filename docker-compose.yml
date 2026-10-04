@@ -8,6 +8,8 @@ services:
       - ./hf-cache:/cache       # checkpoints survive rebuilds; same folder the native setup uses
       - ./scripts:/app/scripts:ro
       - ./data:/app/data:ro
+      - ./models:/app/models:ro   # fine-tuned checkpoints from Kaggle
     environment:
       LAYA_API_KEY: ${LAYA_API_KEY:-}
+      LAYA_MULTILINGUAL_PATH: ${LAYA_MULTILINGUAL_PATH:-}   # e.g. models/ultron-v1
     restart: unless-stopped

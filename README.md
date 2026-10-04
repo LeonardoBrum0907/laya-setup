@@ -63,6 +63,8 @@ O exemplo grava cada decisão em `logs/decisions.jsonl`.
 | `data/rubric.md`, `data/seed/`, `data/test_frozen/` | Rubrica, semente (escrita por você) e teste congelado | 5 |
 | `scripts/validate_dataset.py` | Valida rótulos, duplicatas e vazamento entre treino e teste | 5 |
 | `scripts/export_dataset.py` | Converte para o formato oficial de treino (`state`/`questions`/`gold`) | 5, 7 |
+| `scripts/expand_dataset.py` | Multiplica a semente com o Claude (paráfrases, sarcasmo, ruído de fala), descartando rótulo que mudou e colisão com o teste | 5 |
+| `notebooks/ultron_finetune_kaggle.ipynb` | Fine-tuning no Kaggle (2× T4) a partir do checkpoint multilíngue | 7 |
 | `scripts/eval.py` | Acurácia, matriz de confusão e ECE por idioma e ruído; Laya vs regras; fila de revisão | 6 |
 
 ## Contrato de percepção
@@ -100,6 +102,27 @@ inatividade e contagem de chamados continuam nas regras do motor e não passam p
    O `mind/core` continua sem saber de Ultron ou de Laya.
 3. O sinal de "ouvi" em até 0,2 s continua sendo reflexo por regras; ele não espera a percepção.
 
+## Do dado ao modelo treinado
+
+```powershell
+# 1. Você escreve data/test_frozen/*.jsonl e data/seed/*.jsonl (veja data/rubric.md)
+python scripts/validate_dataset.py
+# 2. Expande a semente com o Claude Code já logado (ou --backend api com chave)
+python scripts/expand_dataset.py --dry-run          # confere o prompt
+python scripts/expand_dataset.py                    # grava data/train/expanded.jsonl
+python scripts/validate_dataset.py                  # de novo: duplicatas e vazamento
+# 3. Exporta no formato oficial e treina no Kaggle
+python scripts/export_dataset.py data/seed data/train -o build/train.jsonl
+#    suba build/train.jsonl como dataset no Kaggle e rode notebooks/ultron_finetune_kaggle.ipynb
+# 4. Usa o modelo treinado: descompacte ultron-v1.zip em models/ultron-v1/, então no .env
+#    LAYA_MULTILINGUAL_PATH=models/ultron-v1   e   docker compose up -d
+# 5. Mede contra o teste congelado
+python scripts/eval.py
+```
+
+Esses scripts de dados não precisam de PyTorch, então rodam no Python do Windows mesmo com o Smart
+App Control ligado.
+
 ## Limites que importam
 
 - Os checkpoints base ficam **perto do acaso** em decisões tipadas zero-shot (0,36 contra 0,32 do
@@ -107,9 +130,8 @@ inatividade e contagem de chamados continuam nas regras do motor e não passam p
   fine-tuning com dados do domínio.
 - O limiar de confiança do fallback (`minConfidence`, 0,6 por padrão) é um chute até ser medido
   com `scripts/eval.py` no teste congelado.
-- Fine-tuning (Fase 7) não está automatizado aqui: o caminho oficial é o notebook Kaggle 2×T4 ou
-  o script para Apple Silicon do repositório do Laya, alimentado por `scripts/export_dataset.py`.
-  Não existe `laya.train` na 0.3.26.
+- O notebook do Kaggle reaproveita o laço de treino oficial do Laya, mas ainda não foi rodado de
+  ponta a ponta com dados do Ultron. Não existe `laya.train` na 0.3.26.
 
 ## Próximos passos
 
@@ -117,5 +139,5 @@ inatividade e contagem de chamados continuam nas regras do motor e não passam p
 2. Responder as perguntas em aberto no fim de `docs/laya-recon.md`. Idioma e atos de fala já
    fechados em `ultron-v1` (04/10/2026); faltam RAM e orçamento de latência.
 3. Escrever a semente e o teste congelado seguindo `data/rubric.md`.
-4. Expansão do dataset por LLM (`scripts/expand_dataset.py`) e preparação do fine-tuning.
+4. Rodar a expansão e o fine-tuning (seção "Do dado ao modelo treinado").
 5. Pesquisa de portabilidade (ONNX/`laya-ts`, `laya-mlx`, `decision_ai`).

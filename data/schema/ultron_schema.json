@@ -1,6 +1,6 @@
 {
   "version": "ultron-v1",
-  "description": "Perception questions for Ultron. Single source of truth: smoke test, server client, validator and eval all read this file. Closed on 2026-10-04: Portuguese input only, these nine speech acts. Quality comes from fine-tuning on data labelled with data/rubric.md.",
+  "description": "Perception questions for Ultron. Single source of truth: smoke test, server client, validator, expansion, export and eval all read this file. v1 frozen on 2026-10-04: Portuguese only, 9 speech acts. Changing a question or option after data is labelled means relabelling, so bump the version and note why.",
   "state_fields": {
     "transcript": "What the person said (already transcribed) or the UI event as text.",
     "device": "desktop | phone | tv",
@@ -48,5 +48,8 @@
         "true": "sarcastic"
       }
     }
-  }
+  },
+  "languages": [
+    "pt"
+  ]
 }

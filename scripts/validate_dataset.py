@@ -27,7 +27,7 @@ from common import ROOT, load_schema, read_jsonl  # noqa: E402
 
 TRAIN_DIRS = [ROOT / "data" / "seed", ROOT / "data" / "train"]
 TEST_DIR = ROOT / "data" / "test_frozen"
-LANGS = {"pt"}  # schema ultron-v1: Portuguese only for now; add "en" here when that changes
+LANGS = set(load_schema().get("languages", ["pt"]))
 
 
 def norm(text: str) -> str:

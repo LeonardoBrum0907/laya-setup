@@ -9,9 +9,10 @@ from __future__ import annotations
 
 import os
 import sys
+from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(__file__))
-from common import load_env  # noqa: E402
+from common import ROOT, load_env  # noqa: E402
 
 LOCAL_HOSTS = {"127.0.0.1", "localhost", "::1"}
 
@@ -36,6 +37,18 @@ def main() -> None:
         f"auth={'on' if os.environ.get('LAYA_API_KEY') else 'off'}",
         flush=True,
     )
+    # A fine-tuned checkpoint (folder downloaded from the Kaggle run) replaces the stock
+    # multilingual one, so Portuguese routing and clients that name "multilingual" get it.
+    local = os.environ.get("LAYA_MULTILINGUAL_PATH")
+    if local:
+        path = Path(local) if Path(local).is_absolute() else ROOT / local
+        if not (path / "rl_agent_config.json").exists():
+            sys.exit(f"LAYA_MULTILINGUAL_PATH={local}: no rl_agent_config.json in {path}")
+        import laya.router
+
+        laya.router.DEFAULT_MODELS["multilingual"] = str(path)
+        print(f"multilingual -> fine-tuned checkpoint at {path}", flush=True)
+
     from laya.serve import main as serve_main
 
     serve_main()
