@@ -1,0 +1,2 @@
+# Pinned on 2026-10-03. Install PyTorch first (CPU or CUDA build, see README), then:
+laya[serve]==0.3.26

@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+logs/*.jsonl
+reports/
+hf-cache/
+node_modules/
+checkpoints/

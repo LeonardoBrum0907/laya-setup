@@ -1,0 +1,23 @@
+{
+  "name": "@ultron/laya-perception",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Typed client and perception contract between Ultron and a local laya-serve",
+  "exports": {
+    ".": "./src/index.ts",
+    "./node": "./src/node.ts"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "test": "node --test \"test/**/*.test.ts\"",
+    "typecheck": "tsc --noEmit",
+    "try": "node examples/perceive.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}
