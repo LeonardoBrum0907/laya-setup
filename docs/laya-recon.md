@@ -107,7 +107,9 @@ medido no teste congelado.
 Já sabemos pelo contexto do projeto: Windows 11, Node 24, Ultron no navegador com um bridge Node.
 Por isso o Laya fica como serviço local separado, chamado pelo bridge. Faltam:
 
-1. RAM da máquina. GPU: **AMD RX 570** (resposta de 04/10/2026). Sem CUDA, e o ROCm no Windows
+1. RAM da máquina: **16 GB** (2×8 GB DDR4-2400), CPU Ryzen 5 2600 (6 núcleos / 12 threads),
+   medido em 04/10/2026. O WSL2 do Docker recebe 7,7 GB e 12 CPUs; o container do `laya-serve`
+   ocupa ~1,6 GB parado, com pico de ~2,4 GB no smoke test. Cabe com folga. GPU: **AMD RX 570** (resposta de 04/10/2026). Sem CUDA, e o ROCm no Windows
    não suporta Polaris, então `LAYA_DEVICE=cpu`. Fine-tuning local fica inviável: usar o notebook
    Kaggle 2×T4. Se a CPU for lenta, avaliar exportação ONNX com DirectML (não testado).
 2. Idiomas de entrada no começo: **só português** (resposta de 04/10/2026). O validador aceita
