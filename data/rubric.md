@@ -1,4 +1,7 @@
-# Rubrica de rotulagem (v0, provisória)
+# Rubrica de rotulagem (v1)
+
+Vale para o schema `ultron-v1`, fechado em 04/10/2026: entrada só em português e os nove atos
+de fala abaixo. Exemplos em outro idioma ficam fora da semente e do teste congelado.
 
 Rotule **o que a fala é**, não o que o Ultron deveria sentir. O efeito no humor é decidido pelo
 motor do Ultron, a partir destes rótulos. As perguntas e opções oficiais estão em

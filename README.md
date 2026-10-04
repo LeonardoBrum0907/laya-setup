@@ -59,7 +59,7 @@ O exemplo grava cada decisão em `logs/decisions.jsonl`.
 | `scripts/smoke_test.py` | Uma pergunta `choice`, uma `score`, uma `noul`; latência fria e quente | 1 |
 | `scripts/serve.py`, `.env.example` | `laya-serve` preso em 127.0.0.1; recusa bind público sem `LAYA_API_KEY` | 2 |
 | `client/` | Cliente TypeScript, contrato de percepção, fallback, log JSONL e testes | 3 |
-| `data/schema/ultron_schema.json` | Perguntas do Ultron v0: fonte única de verdade | 4 |
+| `data/schema/ultron_schema.json` | Perguntas do Ultron v1 (só português): fonte única de verdade | 4 |
 | `data/rubric.md`, `data/seed/`, `data/test_frozen/` | Rubrica, semente (escrita por você) e teste congelado | 5 |
 | `scripts/validate_dataset.py` | Valida rótulos, duplicatas e vazamento entre treino e teste | 5 |
 | `scripts/export_dataset.py` | Converte para o formato oficial de treino (`state`/`questions`/`gold`) | 5, 7 |
@@ -103,7 +103,7 @@ inatividade e contagem de chamados continuam nas regras do motor e não passam p
 ## Limites que importam
 
 - Os checkpoints base ficam **perto do acaso** em decisões tipadas zero-shot (0,36 contra 0,32 do
-  acaso). O schema v0 serve para validar o encanamento, não a qualidade. A qualidade vem do
+  acaso). O schema `ultron-v1` (só português, nove atos de fala) está fechado; ele define o que rotular, não garante qualidade. A qualidade vem do
   fine-tuning com dados do domínio.
 - O limiar de confiança do fallback (`minConfidence`, 0,6 por padrão) é um chute até ser medido
   com `scripts/eval.py` no teste congelado.
@@ -114,7 +114,8 @@ inatividade e contagem de chamados continuam nas regras do motor e não passam p
 ## Próximos passos
 
 1. Rodar o setup e o smoke test na sua máquina e anotar latência e memória em `docs/laya-recon.md`.
-2. Responder as perguntas em aberto no fim de `docs/laya-recon.md`.
+2. Responder as perguntas em aberto no fim de `docs/laya-recon.md`. Idioma e atos de fala já
+   fechados em `ultron-v1` (04/10/2026); faltam RAM e orçamento de latência.
 3. Escrever a semente e o teste congelado seguindo `data/rubric.md`.
 4. Expansão do dataset por LLM (`scripts/expand_dataset.py`) e preparação do fine-tuning.
 5. Pesquisa de portabilidade (ONNX/`laya-ts`, `laya-mlx`, `decision_ai`).

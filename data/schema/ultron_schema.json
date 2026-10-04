@@ -1,6 +1,6 @@
 {
-  "version": "ultron-v0",
-  "description": "Perception questions for Ultron. Single source of truth: smoke test, server client, validator and eval all read this file. Provisional (phase 4): validates the plumbing, not quality.",
+  "version": "ultron-v1",
+  "description": "Perception questions for Ultron. Single source of truth: smoke test, server client, validator and eval all read this file. Closed on 2026-10-04: Portuguese input only, these nine speech acts. Quality comes from fine-tuning on data labelled with data/rubric.md.",
   "state_fields": {
     "transcript": "What the person said (already transcribed) or the UI event as text.",
     "device": "desktop | phone | tv",

@@ -110,6 +110,8 @@ Por isso o Laya fica como serviço local separado, chamado pelo bridge. Faltam:
 1. RAM da máquina. GPU: **AMD RX 570** (resposta de 04/10/2026). Sem CUDA, e o ROCm no Windows
    não suporta Polaris, então `LAYA_DEVICE=cpu`. Fine-tuning local fica inviável: usar o notebook
    Kaggle 2×T4. Se a CPU for lenta, avaliar exportação ONNX com DirectML (não testado).
-2. Idiomas de entrada no começo: só português, ou português e inglês?
-3. Quais atos de fala importam mais para a personalidade (refina `act_type`)?
+2. Idiomas de entrada no começo: **só português** (resposta de 04/10/2026). O validador aceita
+   apenas `"lang": "pt"`; inglês volta a entrar, se entrar, como mudança de schema.
+3. Atos de fala: **os nove de `act_type` cobrem por agora** (resposta de 04/10/2026). Schema
+   fechado como `ultron-v1`.
 4. Orçamento de latência da percepção.
