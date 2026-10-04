@@ -63,6 +63,7 @@ O exemplo grava cada decisão em `logs/decisions.jsonl`.
 | `data/rubric.md`, `data/seed/`, `data/test_frozen/` | Rubrica, semente (escrita por você) e teste congelado | 5 |
 | `scripts/validate_dataset.py` | Valida rótulos, duplicatas e vazamento entre treino e teste | 5 |
 | `scripts/export_dataset.py` | Converte para o formato oficial de treino (`state`/`questions`/`gold`) | 5, 7 |
+| `data/drafts/`, `scripts/import_csv.py` | Rascunhos de semente e teste em planilha para revisar, e o importador para `.jsonl` | 5 |
 | `scripts/expand_dataset.py` | Multiplica a semente com o Claude (paráfrases, sarcasmo, ruído de fala), descartando rótulo que mudou e colisão com o teste | 5 |
 | `notebooks/ultron_finetune_kaggle.ipynb` | Fine-tuning no Kaggle (2× T4) a partir do checkpoint multilíngue | 7 |
 | `scripts/eval.py` | Acurácia, matriz de confusão e ECE por idioma e ruído; Laya vs regras; fila de revisão | 6 |
@@ -105,7 +106,9 @@ inatividade e contagem de chamados continuam nas regras do motor e não passam p
 ## Do dado ao modelo treinado
 
 ```powershell
-# 1. Você escreve data/test_frozen/*.jsonl e data/seed/*.jsonl (veja data/rubric.md)
+# 1. Revise data/drafts/*.csv (ou escreva do zero) e importe (veja data/drafts/README.md)
+python scripts/import_csv.py data/drafts/test_draft.csv --to test
+python scripts/import_csv.py data/drafts/seed_draft.csv --to seed
 python scripts/validate_dataset.py
 # 2. Expande a semente com o Claude Code já logado (ou --backend api com chave)
 python scripts/expand_dataset.py --dry-run          # confere o prompt

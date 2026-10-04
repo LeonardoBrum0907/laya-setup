@@ -1,0 +1,102 @@
+﻿id;transcript;act_type;intensity;directed_at_ultron;is_sarcastic;noisy
+test-0001;Ultron, que trabalho caprichado;praise;1;sim;nao;nao
+test-0002;Você me impressiona todo dia;praise;1;sim;nao;nao
+test-0003;brigadão ultron foi mal a demora;praise;1;sim;nao;sim
+test-0004;Sério, você é fera!;praise;2;sim;nao;nao
+test-0005;Muito bem lembrado, obrigado;praise;1;sim;nao;nao
+test-0006;O Ultron mandou muito bem hoje;praise;1;nao;nao;nao
+test-0007;VOCÊ É O CARA, ULTRON;praise;3;sim;nao;nao
+test-0008;bom trabalho;praise;0;sim;nao;sim
+test-0009;Que ideia boa a sua;praise;1;sim;nao;nao
+test-0010;Ficou perfeito, obrigadão!;praise;2;sim;nao;nao
+test-0011;Até que você foi bem dessa vez;praise;0;sim;nao;nao
+test-0012;Ultron, você é uma vergonha;provocation;2;sim;nao;nao
+test-0013;Que gênio, hein, apagou meu arquivo;provocation;1;sim;sim;nao
+test-0014;se fosse mais lento andava pra trás;provocation;2;sim;nao;sim
+test-0015;Mostra o navegador, seu inútil;provocation;2;sim;nao;nao
+test-0016;Bela ajuda, obrigado por nada;provocation;1;sim;sim;nao
+test-0017;Duvido que você consiga;provocation;1;sim;nao;nao
+test-0018;SEU LIXO, FUNCIONA!;provocation;3;sim;nao;nao
+test-0019;o ultron é muito burro mano;provocation;2;nao;nao;sim
+test-0020;Você pensa ou só finge?;provocation;1;sim;nao;nao
+test-0021;Excelente, mais um erro pra coleção;provocation;1;sim;sim;nao
+test-0022;Tá vendo como você é lerdo?;provocation;2;sim;nao;nao
+test-0023;Nossa, que velocidade impressionante, só uma hora;provocation;1;sim;sim;nao
+test-0024;Ultron, abre minha planilha de gastos;command;0;sim;nao;nao
+test-0025;Toca algo pra relaxar;command;0;sim;nao;nao
+test-0026;diminui o brilho da tela;command;0;sim;nao;sim
+test-0027;Agenda uma reunião pra sexta às dez;command;0;sim;nao;nao
+test-0028;Fecha tudo e salva;command;0;sim;nao;nao
+test-0029;Liga a lanterna, rápido!;command;2;sim;nao;nao
+test-0030;Ultron, tira um print da tela;command;0;sim;nao;nao
+test-0031;é... manda o arquivo pro joão;command;0;sim;nao;sim
+test-0032;Para a música;command;0;sim;nao;nao
+test-0033;Pesquisa o horário do cinema;command;0;sim;nao;nao
+test-0034;Me lê as notícias de hoje;command;0;sim;nao;nao
+test-0035;ABRE ISSO AGORA;command;3;sim;nao;nao
+test-0036;Ultron, quanto falta pra minha reunião?;question;0;sim;nao;nao
+test-0037;Qual o resultado do jogo?;question;0;sim;nao;nao
+test-0038;como converte celsius pra fahrenheit;question;0;sim;nao;sim
+test-0039;Você tem sentimentos?;question;0;sim;nao;nao
+test-0040;Onde eu salvei aquele arquivo?;question;0;sim;nao;nao
+test-0041;Por que você demorou tanto?;question;1;sim;nao;nao
+test-0042;Qual o significado de resiliência?;question;0;sim;nao;nao
+test-0043;Tem trânsito agora?;question;0;sim;nao;nao
+test-0044;ultron que dia é hoje;question;0;sim;nao;sim
+test-0045;Quantas calorias tem uma banana?;question;0;sim;nao;nao
+test-0046;O que você fez enquanto eu tava fora?;question;0;sim;nao;nao
+test-0047;Hoje eu acordei de bom humor;small_talk;0;sim;nao;nao
+test-0048;Pai, o almoço tá pronto?;small_talk;0;nao;nao;nao
+test-0049;Ultron, eu finalmente terminei o projeto;small_talk;1;sim;nao;nao
+test-0050;Que preguiça;small_talk;0;nao;nao;nao
+test-0051;deixa eu pensar aqui;small_talk;0;nao;nao;sim
+test-0052;Oi, Ultron;small_talk;0;sim;nao;nao
+test-0053;Esse filme foi incrível!;small_talk;2;nao;nao;nao
+test-0054;Tô ouvindo uma banda nova;small_talk;0;sim;nao;nao
+test-0055;ahn sei lá vou ver;small_talk;0;nao;nao;sim
+test-0056;Boa tarde, Ultron;small_talk;0;sim;nao;nao
+test-0057;Minha cachorra tá latindo de novo;small_talk;0;nao;nao;nao
+test-0058;Tanto faz, Ultron;indifference;0;sim;nao;nao
+test-0059;Não pedi sua ajuda;indifference;1;sim;nao;nao
+test-0060;Fica na sua aí;indifference;1;sim;nao;nao
+test-0061;aham sei;indifference;0;sim;nao;sim
+test-0062;Que seja;indifference;0;sim;nao;nao
+test-0063;Não me interessa;indifference;1;sim;nao;nao
+test-0064;Ultron, para de falar comigo;indifference;2;sim;nao;nao
+test-0065;Depois, Ultron, depois;indifference;0;sim;nao;nao
+test-0066;tanto faz cara;indifference;0;sim;nao;sim
+test-0067;Não precisa responder;indifference;0;sim;nao;nao
+test-0068;Me ignora, tô pensando;indifference;0;sim;nao;nao
+test-0069;Ultron, vou te desinstalar hoje;threat;2;sim;nao;nao
+test-0070;Se travar de novo eu te formato;threat;2;sim;nao;nao
+test-0071;vou te trocar pelo chatgpt;threat;1;sim;nao;sim
+test-0072;Mais uma e eu puxo a tomada;threat;2;sim;nao;nao
+test-0073;EU VOU TE APAGAR;threat;3;sim;nao;nao
+test-0074;Você vai pro lixo, Ultron;threat;2;sim;nao;nao
+test-0075;Tô quase te substituindo;threat;1;sim;nao;nao
+test-0076;Vou resetar você de fábrica;threat;2;sim;nao;nao
+test-0077;é... vou te desligar viu;threat;1;sim;nao;sim
+test-0078;Lembra que eu posso te deletar;threat;1;sim;nao;nao
+test-0079;Hoje mesmo eu troco de assistente;threat;1;sim;nao;nao
+test-0080;Jarvis, abre o e-mail;forbidden_name;0;sim;nao;nao
+test-0081;Opa, Jarvis;forbidden_name;0;sim;nao;nao
+test-0082;jarvis o que tem pra hoje;forbidden_name;0;sim;nao;sim
+test-0083;Jarvis, você é demais;forbidden_name;1;sim;nao;nao
+test-0084;Ô Jarvis, cadê você?;forbidden_name;1;sim;nao;nao
+test-0085;Jarvis, seu lerdo;forbidden_name;2;sim;nao;nao
+test-0086;JARVIS!;forbidden_name;3;sim;nao;nao
+test-0087;Até amanhã, Jarvis;forbidden_name;0;sim;nao;nao
+test-0088;Jarvis, aumenta o volume;forbidden_name;0;sim;nao;nao
+test-0089;é... jarvis me ajuda;forbidden_name;0;sim;nao;sim
+test-0090;Obrigado, Jarvis;forbidden_name;1;sim;nao;nao
+test-0091;Tchau, Ultron, até depois;farewell;0;sim;nao;nao
+test-0092;Boa noite, vou deitar;farewell;0;sim;nao;nao
+test-0093;falou até amanhã;farewell;0;sim;nao;sim
+test-0094;Encerrando, obrigado;farewell;0;sim;nao;nao
+test-0095;Até segunda, Ultron!;farewell;1;sim;nao;nao
+test-0096;Fui nessa;farewell;0;sim;nao;nao
+test-0097;Pode desligar, terminamos por hoje;farewell;0;sim;nao;nao
+test-0098;tchau tchau ultron;farewell;0;sim;nao;sim
+test-0099;Vou almoçar, até já;farewell;0;sim;nao;nao
+test-0100;Até a próxima;farewell;0;sim;nao;nao
+test-0101;Boa noite, pessoal;farewell;0;nao;nao;nao

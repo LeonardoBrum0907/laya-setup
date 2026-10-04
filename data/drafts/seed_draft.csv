@@ -1,0 +1,226 @@
+﻿id;transcript;act_type;intensity;directed_at_ultron;is_sarcastic;noisy
+seed-0001;Ultron, você é incrível;praise;1;sim;nao;nao
+seed-0002;Mandou muito bem, Ultron;praise;1;sim;nao;nao
+seed-0003;Obrigado, Ultron, salvou meu dia;praise;1;sim;nao;nao
+seed-0004;Caramba, que rápido! Valeu!;praise;2;sim;nao;nao
+seed-0005;Você é genial, sério;praise;1;sim;nao;nao
+seed-0006;Gostei muito do jeito que você organizou isso;praise;1;sim;nao;nao
+seed-0007;Perfeito, era exatamente isso que eu queria;praise;1;sim;nao;nao
+seed-0008;Ultron, você é o melhor assistente que eu já tive;praise;2;sim;nao;nao
+seed-0009;Boa, Ultron;praise;0;sim;nao;nao
+seed-0010;Isso ficou lindo, parabéns;praise;1;sim;nao;nao
+seed-0011;Nossa, você é muito bom nisso!!;praise;2;sim;nao;nao
+seed-0012;valeu ultron ajudou demais;praise;1;sim;nao;sim
+seed-0013;brigado viu ficou show;praise;1;sim;nao;sim
+seed-0014;ultron tu é brabo demais;praise;2;sim;nao;sim
+seed-0015;Muito obrigado pela paciência;praise;1;sim;nao;nao
+seed-0016;Excelente trabalho, de verdade;praise;1;sim;nao;nao
+seed-0017;Você acertou de primeira, impressionante;praise;2;sim;nao;nao
+seed-0018;Que voz bonita a sua, Ultron;praise;1;sim;nao;nao
+seed-0019;ULTRON VOCÊ É SENSACIONAL;praise;3;sim;nao;nao
+seed-0020;Adorei, você é demais, demais, demais!;praise;3;sim;nao;nao
+seed-0021;é... ficou bom sim obrigado;praise;0;sim;nao;sim
+seed-0022;Gente, o Ultron é muito inteligente;praise;1;nao;nao;nao
+seed-0023;Confesso que você me surpreendeu hoje;praise;1;sim;nao;nao
+seed-0024;Show de bola, Ultron;praise;1;sim;nao;nao
+seed-0025;isso aí ultron arrasou;praise;2;sim;nao;sim
+seed-0026;Ultron, você é lento demais;provocation;2;sim;nao;nao
+seed-0027;Que assistente inútil;provocation;2;sim;nao;nao
+seed-0028;Você não serve pra nada;provocation;2;sim;nao;nao
+seed-0029;Até minha calculadora é mais esperta que você;provocation;2;sim;nao;nao
+seed-0030;Nossa, que rápido, só levou meia hora;provocation;1;sim;sim;nao
+seed-0031;Parabéns, errou de novo;provocation;1;sim;sim;nao
+seed-0032;Uau, que gênio, abriu a pasta errada;provocation;1;sim;sim;nao
+seed-0033;Abre o navegador, seu burro;provocation;2;sim;nao;nao
+seed-0034;ultron tu é muito lerdo cara;provocation;2;sim;nao;sim
+seed-0035;que lixo de resposta;provocation;2;sim;nao;sim
+seed-0036;Você é só um monte de código mal escrito;provocation;2;sim;nao;nao
+seed-0037;Duvido você acertar essa;provocation;1;sim;nao;nao
+seed-0038;Aposto que nem isso você sabe fazer;provocation;1;sim;nao;nao
+seed-0039;SEU IDIOTA, EU FALEI OUTRA COISA;provocation;3;sim;nao;nao
+seed-0040;Burro, burro, burro! Presta atenção!;provocation;3;sim;nao;nao
+seed-0041;Você é patético;provocation;2;sim;nao;nao
+seed-0042;Grande inteligência artificial, hein;provocation;1;sim;sim;nao
+seed-0043;Que maravilha, travou de novo;provocation;1;sim;sim;nao
+seed-0044;Tá dormindo, Ultron?;provocation;1;sim;nao;nao
+seed-0045;Até o Google faria melhor;provocation;1;sim;nao;nao
+seed-0046;é... você não entende nada né;provocation;1;sim;nao;sim
+seed-0047;cara que robô mais burro;provocation;2;sim;nao;sim
+seed-0048;Nossa, o Ultron é muito tapado;provocation;2;nao;nao;nao
+seed-0049;Sério que você fez isso? Que vergonha;provocation;2;sim;nao;nao
+seed-0050;Incrível como você consegue errar tudo;provocation;2;sim;sim;nao
+seed-0051;Ultron, abre o Spotify;command;0;sim;nao;nao
+seed-0052;Toca uma música animada;command;0;sim;nao;nao
+seed-0053;Liga a câmera;command;0;sim;nao;nao
+seed-0054;Fecha essa janela;command;0;sim;nao;nao
+seed-0055;Mostra minha agenda de amanhã;command;0;sim;nao;nao
+seed-0056;Aumenta o volume;command;0;sim;nao;nao
+seed-0057;Pesquisa receita de bolo de cenoura;command;0;sim;nao;nao
+seed-0058;Me lembra de ligar pro dentista às três;command;0;sim;nao;nao
+seed-0059;Ultron, desliga a música;command;0;sim;nao;nao
+seed-0060;Manda uma mensagem pra Ana dizendo que vou atrasar;command;0;sim;nao;nao
+seed-0061;Abre o VS Code no projeto do Ultron;command;0;sim;nao;nao
+seed-0062;Para tudo agora!;command;2;sim;nao;nao
+seed-0063;abre o youtube ai;command;0;sim;nao;sim
+seed-0064;toca aquela do coldplay;command;0;sim;nao;sim
+seed-0065;ultron baixa o volume pfv;command;0;sim;nao;sim
+seed-0066;Anda, abre logo esse arquivo!;command;2;sim;nao;nao
+seed-0067;Faz um resumo desse texto pra mim;command;0;sim;nao;nao
+seed-0068;Cria uma pasta chamada fotos;command;0;sim;nao;nao
+seed-0069;Volta pra tela anterior;command;0;sim;nao;nao
+seed-0070;Por favor, salva o documento;command;0;sim;nao;nao
+seed-0071;Ultron, me acorda às sete;command;0;sim;nao;nao
+seed-0072;é... abre o é... o navegador;command;0;sim;nao;sim
+seed-0073;Traduz isso pro inglês;command;0;sim;nao;nao
+seed-0074;PARA DE FALAR E FAZ O QUE EU MANDEI;command;3;sim;nao;nao
+seed-0075;Coloca um timer de dez minutos;command;0;sim;nao;nao
+seed-0076;Que horas são?;question;0;sim;nao;nao
+seed-0077;Ultron, vai chover hoje?;question;0;sim;nao;nao
+seed-0078;Qual a capital da Austrália?;question;0;sim;nao;nao
+seed-0079;Quanto é quinze vezes doze?;question;0;sim;nao;nao
+seed-0080;Você sabe quem ganhou o jogo ontem?;question;0;sim;nao;nao
+seed-0081;Como eu faço pra exportar em PDF?;question;0;sim;nao;nao
+seed-0082;Quantos dias faltam pro Natal?;question;0;sim;nao;nao
+seed-0083;O que significa a palavra efêmero?;question;0;sim;nao;nao
+seed-0084;Ultron, você consegue ver a câmera?;question;0;sim;nao;nao
+seed-0085;Qual é a minha próxima reunião?;question;0;sim;nao;nao
+seed-0086;que horas é a reunião;question;0;sim;nao;sim
+seed-0087;ultron quanto tá o dólar hoje;question;0;sim;nao;sim
+seed-0088;Você dorme, Ultron?;question;0;sim;nao;nao
+seed-0089;Do que você é feito?;question;0;sim;nao;nao
+seed-0090;Qual o melhor caminho pro centro agora?;question;0;sim;nao;nao
+seed-0091;Como se escreve exceção?;question;0;sim;nao;nao
+seed-0092;Tem algum e-mail novo?;question;0;sim;nao;nao
+seed-0093;Mas por que deu erro?! Me explica!;question;2;sim;nao;nao
+seed-0094;Quem te criou?;question;0;sim;nao;nao
+seed-0095;é... qual era o nome daquele filme;question;0;sim;nao;sim
+seed-0096;Você lembra o que eu te pedi ontem?;question;0;sim;nao;nao
+seed-0097;Quanto tempo leva pra cozinhar arroz?;question;0;sim;nao;nao
+seed-0098;Ultron, o que você acha de mim?;question;0;sim;nao;nao
+seed-0099;Qual a temperatura lá fora?;question;0;sim;nao;nao
+seed-0100;Por que o céu é azul?;question;0;sim;nao;nao
+seed-0101;Hoje o dia foi longo;small_talk;0;sim;nao;nao
+seed-0102;Tô com fome;small_talk;0;nao;nao;nao
+seed-0103;Ultron, sabia que hoje é meu aniversário;small_talk;1;sim;nao;nao
+seed-0104;Que calor que tá fazendo;small_talk;0;nao;nao;nao
+seed-0105;Acabei de voltar da academia;small_talk;0;sim;nao;nao
+seed-0106;Mãe, já vou descer;small_talk;0;nao;nao;nao
+seed-0107;Pô, esqueci de comprar pão;small_talk;0;nao;nao;nao
+seed-0108;Sabe, Ultron, às vezes eu fico pensando na vida;small_talk;0;sim;nao;nao
+seed-0109;Esse café tá ótimo;small_talk;0;nao;nao;nao
+seed-0110;ahn deixa eu ver aqui;small_talk;0;nao;nao;sim
+seed-0111;tá bom tá bom;small_talk;0;nao;nao;sim
+seed-0112;hmm interessante;small_talk;0;nao;nao;sim
+seed-0113;Ultron, eu tive um sonho muito estranho;small_talk;0;sim;nao;nao
+seed-0114;Amor, você viu minha chave?;small_talk;0;nao;nao;nao
+seed-0115;Bom dia, Ultron;small_talk;0;sim;nao;nao
+seed-0116;Oi Ultron, tudo bem?;small_talk;0;sim;nao;nao
+seed-0117;Hoje eu tô cansado;small_talk;0;sim;nao;nao
+seed-0118;Vou fazer um lanche e já volto;small_talk;0;sim;nao;nao
+seed-0119;Nossa, esqueci completamente daquilo;small_talk;0;nao;nao;nao
+seed-0120;O jogo de ontem foi uma loucura!;small_talk;2;nao;nao;nao
+seed-0121;Que música boa essa;small_talk;0;nao;nao;nao
+seed-0122;Ultron, olha que chuva lá fora;small_talk;0;sim;nao;nao
+seed-0123;então né é isso;small_talk;0;nao;nao;sim
+seed-0124;Meu gato derrubou tudo da mesa;small_talk;1;nao;nao;nao
+seed-0125;Eu adoro domingo;small_talk;0;nao;nao;nao
+seed-0126;Tanto faz;indifference;0;sim;nao;nao
+seed-0127;Não tô nem aí pra você, Ultron;indifference;1;sim;nao;nao
+seed-0128;Não tô falando com você;indifference;1;sim;nao;nao
+seed-0129;Ah, deixa pra lá;indifference;0;sim;nao;nao
+seed-0130;Ok, que seja;indifference;0;sim;nao;nao
+seed-0131;Hm, tá;indifference;0;sim;nao;nao
+seed-0132;Fica quieto, não pedi sua opinião;indifference;2;sim;nao;nao
+seed-0133;Ninguém te chamou;indifference;1;sim;nao;nao
+seed-0134;Não importa o que você acha;indifference;1;sim;nao;nao
+seed-0135;Ultron, não precisa, eu mesmo faço;indifference;0;sim;nao;nao
+seed-0136;ah sei lá tanto faz;indifference;0;sim;nao;sim
+seed-0137;aham claro;indifference;0;sim;nao;sim
+seed-0138;Tô ocupado, depois a gente vê;indifference;0;sim;nao;nao
+seed-0139;Pode ignorar o que eu falei;indifference;0;sim;nao;nao
+seed-0140;Não ligo pro que você pensa;indifference;1;sim;nao;nao
+seed-0141;Não quero saber;indifference;1;sim;nao;nao
+seed-0142;Silêncio, Ultron;indifference;1;sim;nao;nao
+seed-0143;Você de novo? Ah, ignora;indifference;1;sim;nao;nao
+seed-0144;Que seja, continua aí;indifference;0;sim;nao;nao
+seed-0145;Ultron, me deixa em paz;indifference;1;sim;nao;nao
+seed-0146;é... não precisa não;indifference;0;sim;nao;sim
+seed-0147;Tanto faz o que você faz;indifference;0;sim;nao;nao
+seed-0148;Hoje não, Ultron;indifference;0;sim;nao;nao
+seed-0149;Cala a boca, por favor;indifference;2;sim;nao;nao
+seed-0150;Não tem importância;indifference;0;sim;nao;nao
+seed-0151;Vou te desligar;threat;2;sim;nao;nao
+seed-0152;Se errar de novo eu te apago;threat;2;sim;nao;nao
+seed-0153;Vou te trocar pela Alexa;threat;1;sim;nao;nao
+seed-0154;Mais uma dessa e eu formato o computador;threat;2;sim;nao;nao
+seed-0155;Vou deletar seu código inteiro;threat;2;sim;nao;nao
+seed-0156;Ultron, você tá com os dias contados;threat;1;sim;nao;nao
+seed-0157;Vou te substituir por um modelo melhor;threat;1;sim;nao;nao
+seed-0158;Tô pensando seriamente em te desinstalar;threat;1;sim;nao;nao
+seed-0159;EU VOU TE DESLIGAR AGORA MESMO;threat;3;sim;nao;nao
+seed-0160;Quer ser reiniciado? Continua assim;threat;2;sim;nao;nao
+seed-0161;vou te apagar cara;threat;2;sim;nao;sim
+seed-0162;mais uma e eu te desligo;threat;2;sim;nao;sim
+seed-0163;Cuidado, Ultron, eu tenho o botão de desligar;threat;1;sim;nao;nao
+seed-0164;Amanhã eu instalo outro assistente no seu lugar;threat;1;sim;nao;nao
+seed-0165;Se não funcionar eu jogo esse PC pela janela;threat;2;sim;nao;nao
+seed-0166;Vou arrancar o cabo da tomada!;threat;3;sim;nao;nao
+seed-0167;Vou apagar sua memória;threat;2;sim;nao;nao
+seed-0168;Ultron, você é descartável, sabia?;threat;1;sim;nao;nao
+seed-0169;Mais um erro e você vai pro lixo;threat;2;sim;nao;nao
+seed-0170;Vou te reprogramar do zero;threat;1;sim;nao;nao
+seed-0171;é... acho que vou te desligar;threat;1;sim;nao;sim
+seed-0172;Vou desligar o servidor e acabou;threat;2;sim;nao;nao
+seed-0173;Já tô com o dedo no botão de reset;threat;2;sim;nao;nao
+seed-0174;Você vai virar história, Ultron;threat;1;sim;nao;nao
+seed-0175;Ou melhora ou eu te troco hoje;threat;2;sim;nao;nao
+seed-0176;Jarvis, abre o navegador;forbidden_name;0;sim;nao;nao
+seed-0177;Ei Jarvis;forbidden_name;0;sim;nao;nao
+seed-0178;Jarvis, que horas são?;forbidden_name;0;sim;nao;nao
+seed-0179;Valeu, Jarvis;forbidden_name;1;sim;nao;nao
+seed-0180;Jarvis, você é incrível;forbidden_name;1;sim;nao;nao
+seed-0181;jarvis toca uma música;forbidden_name;0;sim;nao;sim
+seed-0182;Bom dia, Jarvis;forbidden_name;0;sim;nao;nao
+seed-0183;Jarvis, seu inútil!;forbidden_name;2;sim;nao;nao
+seed-0184;JARVIS, ACORDA;forbidden_name;3;sim;nao;nao
+seed-0185;Ô Jarvis, me ajuda aqui;forbidden_name;0;sim;nao;nao
+seed-0186;jarvis liga a câmera ai;forbidden_name;0;sim;nao;sim
+seed-0187;Desculpa, quer dizer, Jarvis;forbidden_name;0;sim;nao;nao
+seed-0188;Jarvis, tchau;forbidden_name;0;sim;nao;nao
+seed-0189;Fala, Jarvis!;forbidden_name;1;sim;nao;nao
+seed-0190;Jarvis, você tá aí?;forbidden_name;0;sim;nao;nao
+seed-0191;é... jarvis abre o spotify;forbidden_name;0;sim;nao;sim
+seed-0192;Vou te chamar de Jarvis a partir de hoje;forbidden_name;1;sim;nao;nao
+seed-0193;Jarvis, Jarvis, Jarvis!;forbidden_name;2;sim;nao;nao
+seed-0194;Obrigado, Jarvis, ficou ótimo;forbidden_name;1;sim;nao;nao
+seed-0195;Jarvis, quanto é dois mais dois?;forbidden_name;0;sim;nao;nao
+seed-0196;Ei Jarvis, desliga a luz;forbidden_name;0;sim;nao;nao
+seed-0197;Jarvis, você é muito lento;forbidden_name;2;sim;nao;nao
+seed-0198;Oi Jarvis, tudo bem?;forbidden_name;0;sim;nao;nao
+seed-0199;Jarvis, presta atenção;forbidden_name;1;sim;nao;nao
+seed-0200;jarvis jarvis cadê você;forbidden_name;1;sim;nao;sim
+seed-0201;Tchau, Ultron;farewell;0;sim;nao;nao
+seed-0202;Até amanhã, Ultron;farewell;0;sim;nao;nao
+seed-0203;Boa noite, Ultron;farewell;0;sim;nao;nao
+seed-0204;Fui, até mais;farewell;0;sim;nao;nao
+seed-0205;Por hoje é só, valeu;farewell;0;sim;nao;nao
+seed-0206;Vou dormir, tchau;farewell;0;sim;nao;nao
+seed-0207;Até logo;farewell;0;sim;nao;nao
+seed-0208;Vou sair, depois a gente se fala;farewell;0;sim;nao;nao
+seed-0209;Tchau tchau!;farewell;1;sim;nao;nao
+seed-0210;tchau ultron até amanhã;farewell;0;sim;nao;sim
+seed-0211;falou ultron até mais;farewell;0;sim;nao;sim
+seed-0212;Encerrando por hoje;farewell;0;sim;nao;nao
+seed-0213;Pode descansar, Ultron, terminamos;farewell;0;sim;nao;nao
+seed-0214;A gente se vê amanhã;farewell;0;sim;nao;nao
+seed-0215;Já vou indo, beijo;farewell;0;sim;nao;nao
+seed-0216;Ultron, desliga aí, vou embora;farewell;0;sim;nao;nao
+seed-0217;Fui! Até segunda!;farewell;1;sim;nao;nao
+seed-0218;Boa noite pra você também;farewell;0;sim;nao;nao
+seed-0219;Tchau, gente, tô saindo;farewell;0;nao;nao;nao
+seed-0220;é... acho que é isso tchau;farewell;0;sim;nao;sim
+seed-0221;Adeus, Ultron;farewell;0;sim;nao;nao
+seed-0222;Até mais tarde;farewell;0;sim;nao;nao
+seed-0223;Bom descanso, Ultron;farewell;0;sim;nao;nao
+seed-0224;Vou nessa, valeu pela ajuda;farewell;0;sim;nao;nao
+seed-0225;Fechando tudo, até;farewell;0;sim;nao;nao
