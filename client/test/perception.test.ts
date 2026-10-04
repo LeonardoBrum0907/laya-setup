@@ -3,7 +3,7 @@ import { createServer } from 'node:http';
 import type { AddressInfo } from 'node:net';
 import { after, before, describe, it } from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { LayaClient, Perceiver, perceiveByRules } from '../src/index.ts';
+import { LayaClient, Perceiver, perceiveByRules, voiceFeatures } from '../src/index.ts';
 import type { DecisionLog } from '../src/index.ts';
 import { loadQuestions } from '../src/node.ts';
 
@@ -115,5 +115,45 @@ describe('perceiveByRules', () => {
   });
   it('reads a trailing question mark as a question', () => {
     assert.equal(perceiveByRules({ transcript: 'que horas são?' }).actType, 'question');
+  });
+});
+
+describe('voice features', () => {
+  const rate = 16000;
+  function tone(hz: number, ms: number, amp: number): Float32Array {
+    const n = Math.round((rate * ms) / 1000);
+    return Float32Array.from({ length: n }, (_, i) => amp * Math.sin((2 * Math.PI * hz * i) / rate));
+  }
+  function concat(...parts: Float32Array[]): Float32Array {
+    const out = new Float32Array(parts.reduce((a, p) => a + p.length, 0));
+    let at = 0;
+    for (const p of parts) { out.set(p, at); at += p.length; }
+    return out;
+  }
+
+  it('measures level, pitch, pauses and speaking rate', () => {
+    const audio = concat(tone(150, 990, 0.5), new Float32Array(rate * 0.6), tone(150, 990, 0.5));
+    const v = voiceFeatures(audio, rate, 'um dois três quatro');
+    assert.equal(v.durationMs, 2580);
+    assert.equal(v.longPauses, 1);
+    assert.ok(Math.abs((v.pitchHz ?? 0) - 150) < 5, `pitch ${v.pitchHz}`);
+    assert.ok(v.rmsDb > -10 && v.rmsDb < -8, `rms ${v.rmsDb}`); // sine at 0.5 ≈ -9 dBFS
+    assert.equal(v.wordsPerSecond, 2.02);
+  });
+
+  it('reports silence without pitch', () => {
+    const v = voiceFeatures(new Float32Array(rate), rate);
+    assert.equal(v.speechRatio, 0);
+    assert.equal(v.pitchHz, undefined);
+    assert.equal(v.longPauses, 0);
+  });
+
+  it('logs voice features but keeps them out of the state sent to Laya', async () => {
+    mode = 'ok';
+    const logs: DecisionLog[] = [];
+    const voice = voiceFeatures(tone(200, 600, 0.8), rate, 'Ultron anda logo');
+    await perceiver(logs).perceive({ ...event, voice });
+    assert.deepEqual(Object.keys(lastBody.state).sort(), ['channel', 'device', 'transcript']);
+    assert.deepEqual(logs[0].event.voice, voice);
   });
 });

@@ -4,6 +4,7 @@
 
 import { LayaClient, LayaError } from './laya-client.ts';
 import type { Answer, Questions } from './laya-client.ts';
+import type { VoiceFeatures } from './voice.ts';
 
 export type ActType =
   | 'praise'
@@ -20,6 +21,8 @@ export type PerceptionEvent = {
   transcript: string;
   device?: 'desktop' | 'phone' | 'tv';
   channel?: 'voice' | 'ui';
+  /** Prosody from the audio (voiceFeatures). Logged only: ultron-v1 never sends it to Laya. */
+  voice?: VoiceFeatures;
 };
 
 export type Perception = {

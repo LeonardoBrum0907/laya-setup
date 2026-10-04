@@ -80,7 +80,9 @@ type Perception = {
 };
 ```
 
-O estado enviado ao Laya é só `{ transcript, device, channel }`, **sem humor**. Mouse errático,
+O estado enviado ao Laya é só `{ transcript, device, channel }`, **sem humor**. O evento pode
+trazer `voice` (volume, ritmo, altura, de `client/src/voice.ts`), mas na v1 isso só vai para o
+log; veja `docs/entonacao.md`. Mouse errático,
 inatividade e contagem de chamados continuam nas regras do motor e não passam por aqui.
 
 ### Ligando ao Ultron
@@ -118,4 +120,5 @@ inatividade e contagem de chamados continuam nas regras do motor e não passam p
    fechados em `ultron-v1` (04/10/2026); faltam RAM e orçamento de latência.
 3. Escrever a semente e o teste congelado seguindo `data/rubric.md`.
 4. Expansão do dataset por LLM (`scripts/expand_dataset.py`) e preparação do fine-tuning.
-5. Pesquisa de portabilidade (ONNX/`laya-ts`, `laya-mlx`, `decision_ai`).
+5. Entonação: medir a voz no bridge e juntar gravações para decidir uma v2 (`docs/entonacao.md`).
+6. Pesquisa de portabilidade (ONNX/`laya-ts`, `laya-mlx`, `decision_ai`).
