@@ -83,7 +83,9 @@ do schema) e convertemos com `scripts/export_dataset.py`.
 Já sabemos pelo contexto do projeto: Windows 11, Node 24, Ultron no navegador com um bridge Node.
 Por isso o Laya fica como serviço local separado, chamado pelo bridge. Faltam:
 
-1. RAM e GPU da máquina (define `LAYA_DEVICE` e se o fine-tuning roda local).
+1. RAM da máquina. GPU: **AMD RX 570** (resposta de 04/10/2026). Sem CUDA, e o ROCm no Windows
+   não suporta Polaris, então `LAYA_DEVICE=cpu`. Fine-tuning local fica inviável: usar o notebook
+   Kaggle 2×T4. Se a CPU for lenta, avaliar exportação ONNX com DirectML (não testado).
 2. Idiomas de entrada no começo: só português, ou português e inglês?
 3. Quais atos de fala importam mais para a personalidade (refina `act_type`)?
 4. Orçamento de latência da percepção.
