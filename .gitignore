@@ -7,3 +7,4 @@ reports/
 hf-cache/
 node_modules/
 checkpoints/
+data/private/
