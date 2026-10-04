@@ -83,6 +83,7 @@ def main() -> None:
     parser.add_argument("--test", type=Path, default=TEST_DIR)
     parser.add_argument("--model", action="append", help="laya checkpoint served by scripts/serve.py")
     parser.add_argument("--no-rules", action="store_true")
+    parser.add_argument("--no-laya", action="store_true", help="rules baseline only, no server needed")
     parser.add_argument("--url", default=None, help="default http://LAYA_HOST:LAYA_PORT")
     parser.add_argument("--review-below", type=float, default=0.6, help="confidence under which answers go to review")
     args = parser.parse_args()
@@ -97,7 +98,7 @@ def main() -> None:
         sys.exit(f"No examples under {args.test}. Write the frozen test set first (see data/test_frozen/README.md).")
 
     sources: dict[str, list[dict | None]] = {}
-    for model in args.model or ["multilingual"]:
+    for model in [] if args.no_laya else args.model or ["multilingual"]:
         preds = []
         for r in rows:
             try:
