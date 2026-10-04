@@ -9,3 +9,4 @@ node_modules/
 checkpoints/
 models/
 build/
+data/private/
