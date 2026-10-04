@@ -3,7 +3,7 @@
 Escritos pelo Claude como ponto de partida. **Nada aqui entra em treino ou teste** até você revisar
 e importar.
 
-- `seed_draft.csv`: 225 falas, 25 por ato. Depois de revisada vira `data/seed/seed.jsonl`.
+- `seed_draft.csv`: 329 falas (35 a 39 por ato) no jeito de falar do Léo, tiradas do estilo das mensagens dele sem copiar nenhuma. Ids `seed-r…` vieram de um segundo lote; três terminam em `-ambiguo` para decidir o rótulo. Depois de revisada vira `data/seed/seed.jsonl`.
 - `test_draft.csv`: 101 falas, umas 11 por ato, diferentes da semente. Depois de revisada vira
   `data/test_frozen/test.jsonl`.
 
