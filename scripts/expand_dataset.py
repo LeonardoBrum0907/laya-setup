@@ -184,6 +184,12 @@ def main() -> None:
 
     out_schema = output_schema(questions)
     ask = BACKENDS[args.backend]
+    if args.dry_run:
+        row = next((r for r in seed if r["id"] not in done_ids), seed[0])
+        print(system, "\n\n---\n\n", USER.format(
+            transcript=row["state"]["transcript"], labels=json.dumps(row["labels"], ensure_ascii=False),
+            n=args.variants, n_noisy=max(1, args.variants // 3)), sep="")
+        return
     args.out.parent.mkdir(parents=True, exist_ok=True)
     kept = dropped = failed = 0
     with open(args.out, "a", encoding="utf-8") as f:
@@ -194,9 +200,6 @@ def main() -> None:
             prompt = USER.format(transcript=row["state"]["transcript"],
                                  labels=json.dumps(labels, ensure_ascii=False),
                                  n=args.variants, n_noisy=max(1, args.variants // 3))
-            if args.dry_run:
-                print(system, "\n\n---\n\n", prompt, sep="")
-                return
             try:
                 answer = ask(system, prompt, out_schema)
             except Exception as e:  # one bad example should not stop the run
@@ -226,7 +229,7 @@ def main() -> None:
             f.flush()
             print(f"[{i}/{len(seed)}] {row['id']}: +{k}")
     print(f"kept {kept}, dropped {dropped} (duplicate, label drift or test collision), failed {failed}")
-    print(f"next: python scripts/validate_dataset.py")
+    print("next: python scripts/validate_dataset.py")
 
 
 if __name__ == "__main__":
