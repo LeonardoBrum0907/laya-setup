@@ -22,7 +22,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from common import ROOT, load_schema  # noqa: E402
-from validate_dataset import check_label  # noqa: E402
+from validate_dataset import check_label, rel  # noqa: E402
 
 TARGETS = {"seed": ROOT / "data" / "seed" / "seed.jsonl", "test": ROOT / "data" / "test_frozen" / "test.jsonl"}
 YES = {"sim", "s", "yes", "y", "true", "1", "x", "verdadeiro"}
@@ -96,7 +96,7 @@ def main() -> None:
     with open(out, "w", encoding="utf-8") as f:
         for row in rows:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
-    print(f"wrote {len(rows)} examples to {out.relative_to(ROOT) if ROOT in out.resolve().parents else out}")
+    print(f"wrote {len(rows)} examples to {rel(out)}")
     print("next: python scripts/validate_dataset.py")
 
 

@@ -18,7 +18,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from common import ROOT, load_schema  # noqa: E402
-from validate_dataset import TEST_DIR, collect  # noqa: E402
+from validate_dataset import TEST_DIR, collect, rel  # noqa: E402
 
 
 def gold_for(question: dict, value, smoothing: float) -> dict:
@@ -64,7 +64,7 @@ def main() -> None:
                     "gold": json.dumps(gold, ensure_ascii=False),
                 }, ensure_ascii=False) + "\n")
                 n += 1
-    print(f"wrote {n} rows to {args.out.relative_to(ROOT) if ROOT in args.out.resolve().parents else args.out}")
+    print(f"wrote {n} rows to {rel(args.out)}")
 
 
 if __name__ == "__main__":
