@@ -21,6 +21,7 @@ as input and never writes there.
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 import json
 import re
 import shutil
@@ -153,6 +154,7 @@ def main() -> None:
     parser.add_argument("-n", "--variants", type=int, default=8, help="variants per seed example")
     parser.add_argument("-o", "--out", type=Path, default=DEFAULT_OUT)
     parser.add_argument("--backend", choices=list(BACKENDS), default="claude-code")
+    parser.add_argument("--jobs", type=int, default=1, help="requests in flight at once")
     parser.add_argument("--limit", type=int, default=None, help="only the first N seed examples")
     parser.add_argument("--dry-run", action="store_true", help="print the first prompt and exit")
     args = parser.parse_args()
@@ -167,6 +169,9 @@ def main() -> None:
     questions = schema["questions"]
     rubric = (ROOT / "data" / "rubric.md").read_text(encoding="utf-8")
     system = SYSTEM.format(rubric=rubric)
+    style = ROOT / "data" / "style.md"
+    if style.exists():  # the speaker's way of talking, so variants sound like him
+        system += "\n\nJeito de falar do usuário (siga nas variações):\n" + style.read_text(encoding="utf-8")
     seed = [r for rows in collect([p.resolve() for p in args.paths]).values() for r in rows]
     seed = seed[: args.limit] if args.limit else seed
     if not seed:
@@ -193,18 +198,24 @@ def main() -> None:
     args.out.parent.mkdir(parents=True, exist_ok=True)
     kept = dropped = failed = 0
     with open(args.out, "a", encoding="utf-8") as f:
-        for i, row in enumerate(seed, 1):
-            if row["id"] in done_ids:
-                continue  # resumable: already expanded in a previous run
-            labels = row["labels"]
+        todo = [(i, row) for i, row in enumerate(seed, 1) if row["id"] not in done_ids]  # resumable
+
+        def request(row: dict):
             prompt = USER.format(transcript=row["state"]["transcript"],
-                                 labels=json.dumps(labels, ensure_ascii=False),
+                                 labels=json.dumps(row["labels"], ensure_ascii=False),
                                  n=args.variants, n_noisy=max(1, args.variants // 3))
             try:
-                answer = ask(system, prompt, out_schema)
+                return ask(system, prompt, out_schema), None
             except Exception as e:  # one bad example should not stop the run
+                return None, e
+
+        # Requests run in parallel; filtering and writing stay in seed order on this thread.
+        pool = ThreadPoolExecutor(max_workers=max(1, args.jobs))
+        for (i, row), (answer, error) in zip(todo, pool.map(request, [r for _, r in todo])):
+            labels = row["labels"]
+            if error is not None:
                 failed += 1
-                print(f"[{i}/{len(seed)}] {row['id']}: failed ({e})", file=sys.stderr)
+                print(f"[{i}/{len(seed)}] {row['id']}: failed ({error})", file=sys.stderr)
                 continue
             k = 0
             for v in answer.get("variants", []):
