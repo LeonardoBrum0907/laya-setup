@@ -124,3 +124,26 @@ Por isso o Laya fica como serviço local separado, chamado pelo bridge. Faltam:
   ritmo do áudio (`client/src/prosody.ts`) e grava no log de decisões, sem mandar ao Laya. Com
   algumas centenas de falas reais gravadas, os erros do teste congelado dizem se vale criar um
   schema v2 com campos de voz, rotulado a partir dessas gravações.
+
+## Primeiro fine-tuning: ultron-v1 (08/10/2026)
+
+Kaggle, 2× T4, 20 min, 4 épocas sobre 2.282 exemplos (329 da semente + 1.953 da expansão), a
+partir do `multilingual`. Rascunhos ainda sem revisão do Léo. Temperaturas de calibração bateram
+no teto (5,0) nas três famílias de pergunta.
+
+Teste congelado (101 falas), `scripts/eval.py`, acurácia:
+
+| Pergunta | Modelo base | Regras | ultron-v1 |
+|---|---|---|---|
+| act_type | 0,297 | 0,436 | 0,812 |
+| directed_at_ultron | 0,129 | 0,366 | 0,901 |
+| intensity | 0,287 | 0,307 | 0,812 |
+| is_sarcastic | 0,931 | 0,960 | 0,980 |
+
+- `act_type` com ruído de transcrição (18 falas): 0,722; sem ruído: 0,831.
+- Perfeitos: forbidden_name 11/11, farewell 11/11. Mais fracos: praise (4 de 11 erradas, para
+  provocation ou small_talk) e small_talk (5 de 11). Também provocation → indifference (2) e
+  threat → small_talk (2).
+- Confiante demais: ECE de `act_type` 0,16. Erra ~19% com confiança alta, então
+  `minConfidence` = 0,6 quase nunca manda para as regras. O limiar precisa ser medido nestes
+  resultados, ou a v2 treina com 2 épocas e mais variedade.
