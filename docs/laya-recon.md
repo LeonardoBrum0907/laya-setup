@@ -147,3 +147,28 @@ Teste congelado (101 falas), `scripts/eval.py`, acurácia:
 - Confiante demais: ECE de `act_type` 0,16. Erra ~19% com confiança alta, então
   `minConfidence` = 0,6 quase nunca manda para as regras. O limiar precisa ser medido nestes
   resultados, ou a v2 treina com 2 épocas e mais variedade.
+
+## Segundo fine-tuning: ultron-v2 (09/10/2026)
+
+Kaggle, 2× T4, 15 min, 2 épocas sobre 3.283 exemplos (440 da semente revisada pelo Léo, com o
+estilo dele tirado de conversas privadas, + 2.843 da expansão). Calibração [4,46; 5,0; 5,0]: o
+`act_type` saiu do teto. Zip de 600 MB (sem `checkpoint_latest`). É o modelo em uso
+(`LAYA_MULTILINGUAL_PATH=models/ultron-v2`); a v1 continua em `models/` para voltar.
+
+| Pergunta | Base | ultron-v1 | ultron-v2 |
+|---|---|---|---|
+| act_type | 0,297 | 0,812 | 0,832 |
+| act_type, com ruído (18) | 0,278 | 0,722 | 0,833 |
+| directed_at_ultron | 0,129 | 0,901 | 0,881 |
+| intensity | 0,287 | 0,812 | 0,772 |
+| is_sarcastic | 0,931 | 0,980 | 0,970 |
+| ECE do act_type | 0,405 | 0,160 | 0,117 |
+
+- Ganho principal nas falas com ruído, que é o caso real de voz.
+- Confiança mais honesta: a fila de revisão (abaixo do limiar) subiu de 16 para 76 itens, então o
+  fallback por regras volta a ter função.
+- directed e intensity caíram 2 e 4 pontos: com 101 falas, 1 fala vale 1 ponto, dentro do ruído.
+- Erros: small_talk ainda é a classe mais fraca (7 de 11 erradas, espalhadas por farewell, praise,
+  indifference, question e provocation); depois provocation → praise (2) e praise → small_talk (2).
+  Nenhum forbidden_name errado.
+- Próximo: mais small_talk sem pedido nenhum na semente; medir `minConfidence` nestes resultados.
